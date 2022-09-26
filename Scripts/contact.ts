@@ -67,9 +67,29 @@ class Contact
         return outputString;
     }
 
+    /**
+     * This method converts class Data Members to a comma-seperated list compatible with JSON
+     *
+     * @return {string}  {string}
+     * @memberof Contact
+     */
     public toJSON(): string
     {
-        return `{ "FullName": ${this.FullName}, "ContactNumber": ${this.contactNumber}, "EmailAddress": ${this.EmailAddress} }`
+        return `${this.FullName},${this.contactNumber},${this.EmailAddress}`;
+    }
+
+    /**
+     * This method reads data from a comma-seperated list and assigns it to class Data Members
+     *
+     * @param {string} data
+     * @memberof Contact
+     */
+    public fromJSON(data:string):void
+    {
+        let stringArray: string[] = data.split(",");
+        this.FullName = stringArray[0];
+        this.ContactNumber = stringArray[1];
+        this.EmailAddress = stringArray[2];
     }
     // private methods
 }
