@@ -67,5 +67,9 @@ class Contact
         return outputString;
     }
 
+    public toJSON(): string
+    {
+        return `{ "FullName": ${this.FullName}, "ContactNumber": ${this.contactNumber}, "EmailAddress": ${this.EmailAddress} }`
+    }
     // private methods
 }

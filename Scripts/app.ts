@@ -14,8 +14,14 @@
             contactList = DataSource.ContactList
 
             // Load your data into objects
-            let contact = new Contact();
-            console.log(contact.toString());
+            // let contact = new Contact();
+            // console.log(contact.toString());
+
+            for (const contact of contactList) 
+            {
+                let newContact = new Contact(contact.FullName, contact.ContactNumber, contact.EmailAddress);
+                console.log(newContact.toString());
+            }
         });
 
 
