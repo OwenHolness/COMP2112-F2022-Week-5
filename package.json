@@ -1,9 +1,9 @@
 {
-  "name": "comp2112-f2022-week2",
+  "name": "comp2112-f2022-week5",
   "version": "1.0.0",
-  "description": "Demo app for Week 2",
+  "description": "Demo app for Week 5",
   "main": "index.js",
-  "repository": "https://github.com/OwenHolness/COMP2112-F2022-Week2.git",
+  "repository": "https://github.com/OwenHolness/COMP2112-F2022-Week-5.git",
   "author": "Owen Holness <Owen.Holness@MyGeorgian.ca>",
   "license": "MIT",
   "dependencies": {
