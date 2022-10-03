@@ -34,7 +34,7 @@
     {
         $.get("./Views/components/header.html", function(html_data)
         {
-            
+            console.log("Loading Header")
             $("header").html(html_data);
             // activate the Home Link on initial load
             $("li>a#Home").addClass("active")
@@ -61,6 +61,7 @@
 
     function LoadContent(): void
     {
+        console.log("Loading Content")
         let contentLink = document.title.toLowerCase();
 
         $.get("./Views/content/" + contentLink + ".html", function(html_data)
@@ -72,6 +73,7 @@
 
     function LoadFooter(): void
     {
+        console.log("Loading Footer")
         $.get("./Views/components/footer.html", function(html_data)
         {
             $("footer").html(html_data);
