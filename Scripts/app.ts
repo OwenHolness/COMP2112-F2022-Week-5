@@ -39,6 +39,20 @@
 
             // jquery version
             $("header").html(html_data);
+
+            $("li>a").on("click", function()
+            {
+                let title = $(this).prop("id") as string;
+                // capitalize the link and make it document title
+                document.title = title.substring(0, 1).toUpperCase() + title.substring(1);
+
+                LoadContent();
+            })
+
+           
+                
+                
+
             // $("#homePage").addClass("active")
 
             // let navLinks = document.querySelectorAll("li>a.nav-link")
@@ -51,26 +65,48 @@
             //     console.log($(this).prop("href"))
             // });
 
-            switch(document.title)
-            {
-                case "Home":
-                    $("#homePage").addClass("active")
-                    break;
-                case "About Us":
-                    $("#aboutPage").addClass("active")
-                    break;
-                case "Our Projects":
-                    $("#projectPage").addClass("active")
-                    break;
-                case "Our Services":
-                    $("#servicesPage").addClass("active")
-                    break;
-                case "Contact Us":
-                    $("#contactPage").addClass("active")
-                    break;
-            }
+            // switch(document.title)
+            // {
+            //     case "Home":
+            //         $("#homePage").addClass("active")
+            //         break;
+            //     case "About Us":
+            //         $("#aboutPage").addClass("active")
+            //         break;
+            //     case "Our Projects":
+            //         $("#projectPage").addClass("active")
+            //         break;
+            //     case "Our Services":
+            //         $("#servicesPage").addClass("active")
+            //         break;
+            //     case "Contact Us":
+            //         $("#contactPage").addClass("active")
+            //         break;
+            // }
 
         });
+    }
+
+    function LoadContent(): void
+    {
+        switch(document.title)
+        {
+            case "Home":
+                $.get("./Views/content/home.html", function(html_data){$("main").html(html_data);});
+                break;
+            case "About":
+                $.get("./Views/content/about.html", function(html_data){$("main").html(html_data);});
+                break;
+            case "Projects":
+                $.get("./Views/content/projects.html", function(html_data){$("main").html(html_data);});
+                break;
+            case "Services":
+                $.get("./Views/content/services.html", function(html_data){$("main").html(html_data);});
+                break;
+            case "Contact":
+                $.get("./Views/content/contact.html", function(html_data){$("main").html(html_data);});
+                break;
+        }
     }
 
     function LoadFooter(): void
@@ -89,7 +125,13 @@
     {
         console.log("App Started!");
 
+        // initial load
+        document.title = "Home"
+
+        LoadContent();
+
         LoadHeader();
+
         LoadFooter();
     }
 
